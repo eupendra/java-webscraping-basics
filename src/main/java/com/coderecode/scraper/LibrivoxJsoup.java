@@ -57,6 +57,8 @@ public class LibrivoxJsoup {
         Document document = null;
         try {
             Connection conn = Jsoup.connect(url);
+            conn.userAgent("custom user agent");
+            conn.ignoreContentType(true); // useful for JSON response
             document = conn.get();
         } catch (IOException e) {
             e.printStackTrace();
